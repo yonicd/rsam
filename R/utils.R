@@ -1,0 +1,3 @@
+#' @inherit magrittr::'%>%'
+#' @export
+`%>%` <- magrittr::'%>%'
