@@ -20,7 +20,7 @@ library(rsam)
 rsam()
 ```
 
-![[rsam usage](http://img.youtube.com/vi/-XZWv7CJrs8&t=11s/0.jpg)](https://www.youtube.com/watch?v=-XZWv7CJrs8&t=11s)
+![[rsam usage](http://img.youtube.com/vi/-XZWv7CJrs8/0.jpg)](https://www.youtube.com/watch?v=-XZWv7CJrs8)
 
 CLI
 ---
