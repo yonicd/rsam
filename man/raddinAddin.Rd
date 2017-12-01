@@ -4,7 +4,10 @@
 \alias{raddin}
 \title{Raddin Shiny App}
 \usage{
-raddin()
+raddin(warn = TRUE)
+}
+\arguments{
+\item{warn}{boolean, show warning popup message to restart IDE, Default: TRUE}
 }
 \description{
 UI for Raddin Functionality

@@ -8,9 +8,6 @@
 #' @importFrom jsonlite fromJSON
 fetch_addin_keys <- function(){
 
-  if(!file.exists("~/.R/rstudio/keybindings/addins.json"))
-    return(NULL)
-
   json_now <- jsonlite::fromJSON("~/.R/rstudio/keybindings/addins.json")
 
   current_keys <- unlist(json_now)

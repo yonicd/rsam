@@ -2,19 +2,19 @@
 % Please edit documentation in R/set_shortcut.R
 \name{set_shortcut}
 \alias{set_shortcut}
-\title{Set RStudio addin hotkeys}
+\title{Set RStudio Addin Keyboard Shortcuts}
 \usage{
 set_shortcut(fn, shortcut, overide = FALSE, verbose = TRUE)
 }
 \arguments{
 \item{fn}{character, vector of package::function names}
 
-\item{shortcut}{character, vector the same length of function_name with corresponding shortcuts}
+\item{shortcut}{character, vector the same length of fn with corresponding shortcuts}
 
 \item{overide}{boolean, set to TRUE to ignore any existing shortcut, Default: FALSE}
 
 \item{verbose}{boolean, set to TRUE to return a message on actions taken, Default: TRUE}
 }
 \description{
-Helper function that sets Rstudio addin hotkeys to defaults
+Helper function that sets Rstudio addin keyboard shortcuts
 }
