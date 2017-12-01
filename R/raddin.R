@@ -83,6 +83,16 @@ raddin <- function(warn=TRUE) {
 
       this_toggle <- this_update()
 
+      if(sum(!grepl('NA',this_toggle$Shortcut))>0){
+
+        this_shortcut <- this_toggle[!grepl('NA',this_toggle$Shortcut),c('Key','Shortcut')]
+
+        set_shortcut(fn = this_shortcut$Key,
+                     shortcut = this_shortcut$Shortcut,
+                     overide = TRUE,
+                     verbose = FALSE)
+      }
+
       change <- merge(this_now,
                       this_toggle[,c('Key','Show')],
                       by='Key')
