@@ -10,7 +10,7 @@
 #' @importFrom miniUI miniPage gadgetTitleBar miniTitleBarButton miniContentPanel
 raddin <- function(warn=TRUE) {
 
-  default_addins <- fetch_addins(keep_libpath = TRUE)
+  default_addins <- fetch_addins()
 
   current_toggle <- as.data.frame(do.call('rbind',sapply(unique(gsub('_addins.dcf','_toggle',default_addins$libpath)),read.dcf)),stringsAsFactors = FALSE)
 

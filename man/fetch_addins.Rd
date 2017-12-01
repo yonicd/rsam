@@ -4,13 +4,15 @@
 \alias{fetch_addins}
 \title{Current Addins}
 \usage{
-fetch_addins(keep_libpath = FALSE)
+fetch_addins(fields = NULL)
 }
 \arguments{
-\item{keep_libpath}{boolean, keep package libpath in output object, Default: FALSE}
+\item{fields}{character, fields to return from output data.frame, NULL returns all,
+Default: NULL}
 }
 \value{
-data.frame
+data.frame containing the columns: c('Package', 'Name', 'Description',
+  'Binding', 'Interactive', 'libpath', 'Key', 'Shortcut')
 }
 \description{
 Retrieve current installed Addins

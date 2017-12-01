@@ -6,9 +6,25 @@
 #' @param verbose boolean, set to TRUE to return a message on actions taken, Default: TRUE
 #' @rdname set_shortcut
 #' @export
+#' @importFrom jsonlite write_json
 set_shortcut <- function(fn, shortcut, overide = FALSE, verbose = TRUE) {
 
-  current_keys <- fetch_addins(keep_libpath = TRUE)
+  if(length(fn)!=length(unique(fn)))
+    stop('fn values must be unique')
+
+  fn <- unique(fn)
+
+  if(length(shortcut)!=length(unique(shortcut)))
+    stop('shorcut values must be unique')
+
+  shortcut <- unique(shortcut)
+
+  if(length(fn)!=length(shortcut))
+    stop('fn, shortcut must be same length')
+
+  not_found <- FALSE
+
+  current_keys <- fetch_addins()
 
   if(is.null(current_keys$Shortcut))
     current_keys$Shortcut <- NA
@@ -30,6 +46,13 @@ set_shortcut <- function(fn, shortcut, overide = FALSE, verbose = TRUE) {
           current_keys$Shortcut[grep(shortcut[fn_idx],current_keys$Shortcut)] <- NA
           current_keys$Shortcut[idx] <- shortcut[fn_idx]
       }
+    }else{
+
+      not_found <- TRUE
+
+      if (verbose) {
+        message('* Addin binding not found: ', fn[fn_idx])
+      }
     }
   }
 
@@ -37,27 +60,25 @@ set_shortcut <- function(fn, shortcut, overide = FALSE, verbose = TRUE) {
 
   if(sum(new_keys$new)>0){
 
-    nr <- nrow(new_keys)
+    jsonlite::write_json(split(new_keys[,1],new_keys[,2]),
+                         path="~/.R/rstudio/keybindings/addins.json",
+                         auto_unbox = TRUE,
+                         pretty = TRUE)
 
-    cat(
-      c('{',
-        sprintf('  "%s": "%s",',new_keys$Key[-nr],new_keys$Shortcut[-nr]),
-        sprintf('  "%s": "%s"',new_keys$Key[nr],new_keys$Shortcut[nr])
-        ,'}\n'),
-      file = "~/.R/rstudio/keybindings/addins.json",
-      sep = "\n"
-    )
-
-    msg <- paste0("The following addin keyboard shorcuts were set, restart RStudio to initialize\n",
+    msg <- paste0("* The following addin keyboard shorcuts were set, restart RStudio to initialize\n",
                   paste0(sprintf("%s = %s",
                                  new_keys$Key[new_keys$new],
                                  new_keys$Shortcut[new_keys$new]),
                          collapse = "\n"))
   } else {
-    msg <- "addin shortcuts already present"
+    msg <- "\n* Addin shortcuts unchanged"
   }
 
   if (verbose) {
+
+    if(not_found)
+      msg <- sprintf('%s\n\n* For a summary of installed Addin Bindings run raddin::fetch_addins()',msg)
+
     message(msg)
   }
 

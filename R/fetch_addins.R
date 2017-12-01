@@ -1,11 +1,13 @@
 #' @title Current Addins
 #' @description Retrieve current installed Addins
-#' @param keep_libpath boolean, keep package libpath in output object, Default: FALSE
-#' @return data.frame
+#' @param fields character, fields to return from output data.frame, NULL returns all,
+#'   Default: NULL
+#' @return data.frame containing the columns: c('Package', 'Name', 'Description',
+#'   'Binding', 'Interactive', 'libpath', 'Key', 'Shortcut')
 #' @rdname fetch_addins
 #' @export
 #' @importFrom utils installed.packages
-fetch_addins <- function(keep_libpath=FALSE){
+fetch_addins <- function(fields=NULL){
 
   addin_pkgs <- anti_addin()
 
@@ -14,12 +16,14 @@ fetch_addins <- function(keep_libpath=FALSE){
     s <- strsplit(x,'/')[[1]]
     s <- s[length(s)-2]
     ret <- cbind(Package=s,ret)
-    if(keep_libpath)
-      ret <- cbind(ret,libpath=x)
+    ret <- cbind(ret,libpath=x)
     as.data.frame(ret,stringsAsFactors = FALSE)
   })
 
   addins <- data.table::rbindlist(addins,fill=TRUE)
+
+  if(!is.null(fields))
+    addins <- addins[,intersect(fields,colnames(addins))]
 
   return(addins)
 }
