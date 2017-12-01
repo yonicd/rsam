@@ -1,0 +1,69 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+
+library(rsam)
+x <- fetch_addins(fields = c("Package","Name","Description","Binding","Interactive","Key",         "Shortcut"))
+```
+
+# RStudio Addin Manager
+
+`{rsam}` provides a command line and user interface to manage RStudio addins.
+
+## Installation
+
+```{r, eval=FALSE}
+remotes::install_github('yonicd/rsam')
+```
+
+## UI
+
+```{r,eval=FALSE}
+library(rsam)
+
+rsam()
+
+```
+
+![[rsam usage](http://img.youtube.com/vi/-XZWv7CJrs8&t=11s/0.jpg)](https://www.youtube.com/watch?v=-XZWv7CJrs8&t=11s)
+
+## CLI
+
+### Retrieve Summary of Installed Addins
+
+```{r,eval=FALSE}
+fetch_addins()
+```
+
+```{r,echo=FALSE}
+knitr::kable(x)
+```
+
+### Set Keyboard Shortcut for Addins
+
+```{r,eval=FALSE}
+set_shortcut(fn = 'blogdown::serve_site',shortcut = 'Command+Shift+I')
+```
+
+### Toggle Addins on/off
+
+Every time a binding is passed to the `toggle_addin` function it will switch states.
+
+```{r,eval=FALSE}
+toggle_addin(key = c("blogdown::serve_site","blogdown::new_post_addin","blogdown::update_meta_addin"))
+```
+
+## Feedbacks and enhancement
+
+You've found a bug, or have an enhancment idea? Feel free to open an issue : [https://github.com/yonicd/rsam/issues](https://github.com/yonicd/rsam/issues). 

@@ -1,4 +1,4 @@
-Package: raddin
+Package: rsam
 Type: Package
 Title: RStudio Addin Manager
 Version: 0.1.0

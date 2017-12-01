@@ -1,14 +1,14 @@
-#' @title Raddin Shiny App
-#' @description UI for Raddin Functionality
+#' @title rsam user interface
+#' @description Shiny application to use rsam through UI
 #' @param warn boolean, show warning popup message to restart IDE, Default: TRUE
 #' @seealso
 #'  \code{\link[rhandsontable]{rHandsontableOutput}},\code{\link[rhandsontable]{renderRHandsontable}}
-#' @rdname raddinAddin
+#' @rdname rsam
 #' @export
 #' @import shiny
 #' @import rhandsontable
 #' @importFrom miniUI miniPage gadgetTitleBar miniTitleBarButton miniContentPanel
-raddin <- function(warn=TRUE) {
+rsam <- function(warn=TRUE) {
 
   default_addins <- fetch_addins()
 
