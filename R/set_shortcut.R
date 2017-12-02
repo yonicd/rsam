@@ -77,7 +77,7 @@ set_shortcut <- function(fn, shortcut, overide = FALSE, verbose = TRUE) {
   if (verbose) {
 
     if(not_found)
-      msg <- sprintf('%s\n\n* For a summary of installed Addin Bindings run raddin::fetch_addins()',msg)
+      msg <- sprintf('%s\n\n* For a summary of installed Addin Bindings run rsam::fetch_addins()',msg)
 
     message(msg)
   }

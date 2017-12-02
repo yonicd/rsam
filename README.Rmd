@@ -14,7 +14,12 @@ knitr::opts_chunk$set(
 )
 
 library(rsam)
-x <- fetch_addins(fields = c("Package","Name","Description","Binding","Interactive","Key",         "Shortcut"))
+library(dplyr)
+x <- fetch_addins(fields = c("Package","Name","Binding","Interactive","Key","Shortcut"))
+
+x[is.na(x)] <- ''
+
+
 ```
 
 # RStudio Addin Manager
@@ -54,6 +59,11 @@ knitr::kable(x)
 
 ```{r,eval=FALSE}
 set_shortcut(fn = 'blogdown::serve_site',shortcut = 'Command+Shift+I')
+
+#if the binding already has a shortcut mapped to it `overide` must be TRUE
+set_shortcut(fn = 'blogdown::serve_site',shortcut = 'Command+Shift+I',overide = TRUE)
+
+
 ```
 
 ### Toggle Addins on/off
@@ -62,6 +72,25 @@ Every time a binding is passed to the `toggle_addin` function it will switch sta
 
 ```{r,eval=FALSE}
 toggle_addin(key = c("blogdown::serve_site","blogdown::new_post_addin","blogdown::update_meta_addin"))
+```
+
+### Limited Liability Addin 
+
+Pass through an expression wrapped the global object rsam_fn() into the Rstudio Addin list
+
+
+```{r, eval=FALSE}
+
+rsam_fn <- function(){
+  library(ggplot2)
+  library(dplyr)
+  
+  iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width)) + geom_point()
+}
+
+# Change shortcut to whatever you want
+rsam::set_shortcut(fn = 'rsam::lla',shortcut = 'Command+Shift+L')
+
 ```
 
 ## Feedbacks and enhancement

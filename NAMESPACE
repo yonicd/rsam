@@ -3,6 +3,7 @@
 export("%>%")
 export(fetch_addin_keys)
 export(fetch_addins)
+export(restore_addins)
 export(rsam)
 export(set_shortcut)
 export(toggle_addin)

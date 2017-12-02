@@ -1,0 +1,5 @@
+Name: lla
+Description: Limited Liability Addin to pass through an expression wrapped the
+  global object rsam_fn() into the Rstudio Addin list.
+Binding: lla
+Interactive: TRUE
