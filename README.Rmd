@@ -76,7 +76,7 @@ toggle_addin(key = c("blogdown::serve_site","blogdown::new_post_addin","blogdown
 
 ### Limited Liability Addins
 
-`rsam` gives you 3 empty addins to pass into them whatever you want and run them as your personal addins. You can also set beyboard shortcuts for each one with `set_shortcut`.
+`rsam` gives you 3 empty addins to pass into them whatever you want and run them as your personal addins. You can also set keyboard shortcuts for each one with `set_shortcut`.
 
 Pass through an expression wrapped the global objects `rsam_fn_1()`, `rsam_fn_2()`, and `rsam_fn_3()` into the Rstudio Addin list. 
 
