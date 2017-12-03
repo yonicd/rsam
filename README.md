@@ -68,9 +68,9 @@ fetch_addins()
 | remedy        | Youtube                          | youtuber            | false       | remedy::youtuber                | Ctrl+Cmd+Y       |
 | reprex        | Render reprex                    | reprex\_addin       | true        | reprex::reprex\_addin           |                  |
 | rhandsontable | Edit a Data Frame                | editAddin           | true        | rhandsontable::editAddin        |                  |
-| rsam          | lla1                             | lla1                | TRUE        | rsam::lla1                      |                  |
-| rsam          | lla2                             | lla2                | TRUE        | rsam::lla2                      |                  |
-| rsam          | lla3                             | lla3                | TRUE        | rsam::lla3                      |                  |
+| rsam          | lla1                             | lla1                | true        | rsam::lla1                      |                  |
+| rsam          | lla2                             | lla2                | true        | rsam::lla2                      |                  |
+| rsam          | lla3                             | lla3                | true        | rsam::lla3                      |                  |
 | shinyjs       | Colour Picker                    | colourPickerAddin   | true        | shinyjs::colourPickerAddin      |                  |
 | sinew         | createOxygen                     | oxygenAddin         | false       | sinew::oxygenAddin              |                  |
 | sinew         | interactiveOxygen                | interOxyAddIn       | true        | sinew::interOxyAddIn            |                  |
