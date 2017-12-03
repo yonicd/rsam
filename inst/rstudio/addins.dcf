@@ -1,5 +1,14 @@
-Name: lla
-Description: Limited Liability Addin to pass through an expression wrapped the
-  global object rsam_fn() into the Rstudio Addin list.
-Binding: lla
+Name: lla1
+Description: Wrap any global objects in rsam_fn_1() and use this addin to run them.
+Binding: lla1
+Interactive: TRUE
+
+Name: lla2
+Description: Wrap any global objects in rsam_fn_2() and use this addin to run them.
+Binding: lla2
+Interactive: TRUE
+
+Name: lla3
+Description: Wrap any global objects in rsam_fn_3() and use this addin to run them.
+Binding: lla3
 Interactive: TRUE

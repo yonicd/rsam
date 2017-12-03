@@ -68,7 +68,9 @@ fetch_addins()
 | remedy        | Youtube                          | youtuber            | false       | remedy::youtuber                | Ctrl+Cmd+Y       |
 | reprex        | Render reprex                    | reprex\_addin       | true        | reprex::reprex\_addin           |                  |
 | rhandsontable | Edit a Data Frame                | editAddin           | true        | rhandsontable::editAddin        |                  |
-| rsam          | lla                              | lla                 | TRUE        | rsam::lla                       | Command+Shift+L  |
+| rsam          | lla1                             | lla1                | TRUE        | rsam::lla1                      |                  |
+| rsam          | lla2                             | lla2                | TRUE        | rsam::lla2                      |                  |
+| rsam          | lla3                             | lla3                | TRUE        | rsam::lla3                      |                  |
 | shinyjs       | Colour Picker                    | colourPickerAddin   | true        | shinyjs::colourPickerAddin      |                  |
 | sinew         | createOxygen                     | oxygenAddin         | false       | sinew::oxygenAddin              |                  |
 | sinew         | interactiveOxygen                | interOxyAddIn       | true        | sinew::interOxyAddIn            |                  |
@@ -95,21 +97,27 @@ Every time a binding is passed to the `toggle_addin` function it will switch sta
 toggle_addin(key = c("blogdown::serve_site","blogdown::new_post_addin","blogdown::update_meta_addin"))
 ```
 
-### Limited Liability Addin
+### Limited Liability Addins
 
-Pass through an expression wrapped the global object rsam\_fn() into the Rstudio Addin list
+`rsam` gives you 3 empty addins to pass into them whatever you want and run them as your personal addins. You can also set beyboard shortcuts for each one with `set_shortcut`.
+
+Pass through an expression wrapped the global objects `rsam_fn_1()`, `rsam_fn_2()`, and `rsam_fn_3()` into the Rstudio Addin list.
 
 ``` r
 
-rsam_fn <- function(){
+rsam_fn_1 <- function(){
   library(ggplot2)
   library(dplyr)
   
   iris%>%ggplot(aes(x=Sepal.Length,y=Sepal.Width)) + geom_point()
 }
 
-# Change shortcut to whatever you want
-rsam::set_shortcut(fn = 'rsam::lla',shortcut = 'Command+Shift+L')
+# Change shortcuts to whatever you want
+rsam::set_shortcut(fn = 'rsam::lla1',shortcut = 'Command+Shift+L+1')
+
+rsam::set_shortcut(fn = 'rsam::lla2',shortcut = 'Command+Shift+L+2')
+
+rsam::set_shortcut(fn = 'rsam::lla3',shortcut = 'Command+Shift+L+3')
 ```
 
 Feedbacks and enhancement
