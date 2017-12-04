@@ -113,11 +113,14 @@ rsam_fn_1 <- function(){
 }
 
 # Change shortcuts to whatever you want
-rsam::set_shortcut(fn = 'rsam::lla1',shortcut = 'Command+Shift+L+1')
 
-rsam::set_shortcut(fn = 'rsam::lla2',shortcut = 'Command+Shift+L+2')
+keys <- KEYS$`left command/window key` + KEYS$shift + KEYS$l
 
-rsam::set_shortcut(fn = 'rsam::lla3',shortcut = 'Command+Shift+L+3')
+rsam::set_shortcut(fn = 'rsam::lla1',shortcut = keys + KEYS$`1`)
+
+rsam::set_shortcut(fn = 'rsam::lla2',shortcut = keys + KEYS$`2`)
+
+rsam::set_shortcut(fn = 'rsam::lla3',shortcut = keys + KEYS$`3`)
 ```
 
 Feedbacks and enhancement
