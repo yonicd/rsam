@@ -111,8 +111,6 @@ key
 
 ``` r
 
-key <- KEYS$`left command/window key` + KEYS$shift + KEYS$i
-
 set_shortcut(fn = 'blogdown::serve_site',shortcut = key)
 
 #if the binding already has a shortcut mapped to it `overide` must be TRUE
