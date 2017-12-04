@@ -80,6 +80,33 @@ fetch_addins()
 | texPreview    | texPreview                       | texAddin            | false       | texPreview::texAddin            |                  |
 | vcs           | alexa                            | alexa               | true        | vcs::alexa                      |                  |
 
+### Building Keyboard Shortcuts
+
+`rsam` has a validation for keyboard keys through the class `key`
+
+``` r
+
+KEYS$`left command/window key`
+#> [1] "Command"
+#> attr(,"class")
+#> [1] "character" "key"
+
+KEYS$shift
+#> [1] "Shift"
+#> attr(,"class")
+#> [1] "character" "key"
+
+KEYS$i
+#> [1] "I"
+#> attr(,"class")
+#> [1] "character" "key"
+
+key <- KEYS$`left command/window key` + KEYS$shift + KEYS$i
+
+key
+#> [1] "Command+Shift+I"
+```
+
 ### Set Keyboard Shortcut for Addins
 
 ``` r

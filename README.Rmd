@@ -55,6 +55,23 @@ fetch_addins()
 knitr::kable(x)
 ```
 
+### Building Keyboard Shortcuts
+
+`rsam` has a validation for keyboard keys through the class `key`
+
+```{r}
+
+KEYS$`left command/window key`
+
+KEYS$shift
+
+KEYS$i
+
+key <- KEYS$`left command/window key` + KEYS$shift + KEYS$i
+
+key
+```
+
 ### Set Keyboard Shortcut for Addins
 
 ```{r,eval=FALSE}
