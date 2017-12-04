@@ -83,10 +83,13 @@ fetch_addins()
 ### Set Keyboard Shortcut for Addins
 
 ``` r
-set_shortcut(fn = 'blogdown::serve_site',shortcut = 'Command+Shift+I')
+
+key <- KEYS$`left command/window key` + KEYS$shift + KEYS$i
+
+set_shortcut(fn = 'blogdown::serve_site',shortcut = key)
 
 #if the binding already has a shortcut mapped to it `overide` must be TRUE
-set_shortcut(fn = 'blogdown::serve_site',shortcut = 'Command+Shift+I',overide = TRUE)
+set_shortcut(fn = 'blogdown::serve_site',shortcut = key, overide = TRUE)
 ```
 
 ### Toggle Addins on/off
