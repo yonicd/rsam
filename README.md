@@ -1,4 +1,5 @@
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/rsam)](https://cran.r-project.org/package=rsam) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsam) [![Travis-CI Build Status](https://travis-ci.org/yonicd/rsam.svg?branch=master)](https://travis-ci.org/yonicd/rsam)[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/yonicd/rsam?branch=master&svg=true)](https://ci.appveyor.com/project/yonicd/rsam) <!-- README.md is generated from README.Rmd. Please edit that file -->
+
 RStudio Addin Manager
 =====================
 
@@ -56,6 +57,7 @@ fetch_addins()
 | remedy        | H4                               | h4r                 | false       | remedy::h4r                     | Ctrl+Cmd+4       |
 | remedy        | H5                               | h5r                 | false       | remedy::h5r                     | Ctrl+Cmd+5       |
 | remedy        | H6                               | h6r                 | false       | remedy::h6r                     | Ctrl+Cmd+6       |
+| remedy        | Htmlcomment                      | htmlcommentr        | false       | remedy::htmlcommentr            | Ctrl+Alt+C       |
 | remedy        | Image                            | imager              | false       | remedy::imager                  | Ctrl+Cmd+P       |
 | remedy        | Italics                          | italicsr            | false       | remedy::italicsr                | Ctrl+Cmd+I       |
 | remedy        | LaTeX                            | latexr              | false       | remedy::latexr                  | Ctrl+Cmd+L       |

@@ -2,3 +2,6 @@
 ^\.Rproj\.user$
 ^data-raw$
 README.Rmd
+^\.travis\.yml$
+^appveyor\.yml$
+^cran-comments\.md$
