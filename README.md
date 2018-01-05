@@ -39,7 +39,7 @@ fetch_addins()
 | blogdown      | Update Metadata                  | update\_meta\_addin | true        | blogdown::update\_meta\_addin   |                  |
 | bookdown      | Preview Book                     | serve\_book         | true        | bookdown::serve\_book           |                  |
 | bookdown      | Input LaTeX Math                 | mathquill           | true        | bookdown::mathquill             |                  |
-| chunky        | chunky                           | chunkify            | false       | chunky::chunkify                | Ctrl+Shift+J     |
+| chunky        | chunky                           | chunkify            | false       | chunky::chunkify                |                  |
 | clipr         | Value to clipboard               | clipr\_result       | false       | clipr::clipr\_result            |                  |
 | clipr         | Output to clipboard              | clipr\_output       | false       | clipr::clipr\_output            |                  |
 | colourpicker  | Plot Colour Helper               | plotHelperAddin     | true        | colourpicker::plotHelperAddin   |                  |
@@ -117,6 +117,12 @@ set_shortcut(fn = 'blogdown::serve_site',shortcut = key)
 
 #if the binding already has a shortcut mapped to it `overide` must be TRUE
 set_shortcut(fn = 'blogdown::serve_site',shortcut = key, overide = TRUE)
+```
+
+### Remove Keyboard Shortcut for Addins
+
+``` r
+rm_shortcut(fn = 'blogdown::serve_site')
 ```
 
 ### Toggle Addins on/off
