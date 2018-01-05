@@ -2,7 +2,7 @@ Package: rsam
 Type: Package
 Title: RStudio Addin Manager
 Version: 0.1.0
-Author: person("Jonathan", "Sidi", email = "yonicd@gmail.com", role = c("aut"),comment = c(ORCID = "0000-0002-4222-1819"))
+Author: person("Jonathan", "Sidi", email = "yonicd@gmail.com", role = c("aut", "cre"),comment = c(ORCID = "0000-0002-4222-1819"))
 Maintainer: The package maintainer <yonicd@gmail.com>
 Description: Toggle RStudio addins on and off to hide in the IDE dropdown list and
         set keyboard shortcuts for installed addins.
