@@ -22,6 +22,8 @@ fetch_addins <- function(fields=NULL){
 
   addins <- data.table::rbindlist(addins,fill=TRUE)
 
+  if(!'Shortcut'%in%names(addins)) addins$Shortcut <- NA
+
   if(!is.null(fields))
     addins <- addins[,intersect(fields,colnames(addins))]
 
