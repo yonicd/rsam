@@ -1,4 +1,4 @@
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/rsam)](https://cran.r-project.org/package=rsam) [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsam) [![Travis-CI Build Status](https://travis-ci.org/yonicd/rsam.svg?branch=master)](https://travis-ci.org/yonicd/rsam)[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/yonicd/rsam?branch=master&svg=true)](https://ci.appveyor.com/project/yonicd/rsam) <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) [![Travis-CI Build Status](https://travis-ci.org/yonicd/rsam.svg?branch=master)](https://travis-ci.org/yonicd/rsam)[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/yonicd/rsam?branch=master&svg=true)](https://ci.appveyor.com/project/yonicd/rsam) <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 RStudio Addin Manager
 =====================
@@ -7,6 +7,8 @@ RStudio Addin Manager
 
 Installation
 ------------
+
+Since `{rsam}` manages the rstudio addins it must write to disk. For this reason the package was removed from [CRAN](https://cran.r-project.org/web/packages/rsam/index.html).
 
 ``` r
 remotes::install_github('yonicd/rsam')
@@ -32,55 +34,55 @@ CLI
 fetch_addins()
 ```
 
-| Package       | Name                             | Binding             | Interactive | Key                             | Shortcut         |
-|:--------------|:---------------------------------|:--------------------|:------------|:--------------------------------|:-----------------|
-| blogdown      | Serve Site                       | serve\_site         | true        | blogdown::serve\_site           |                  |
-| blogdown      | New Post                         | new\_post\_addin    | true        | blogdown::new\_post\_addin      |                  |
-| blogdown      | Update Metadata                  | update\_meta\_addin | true        | blogdown::update\_meta\_addin   |                  |
-| bookdown      | Preview Book                     | serve\_book         | true        | bookdown::serve\_book           |                  |
-| bookdown      | Input LaTeX Math                 | mathquill           | true        | bookdown::mathquill             |                  |
-| chunky        | chunky                           | chunkify            | false       | chunky::chunkify                |                  |
-| clipr         | Value to clipboard               | clipr\_result       | false       | clipr::clipr\_result            |                  |
-| clipr         | Output to clipboard              | clipr\_output       | false       | clipr::clipr\_output            |                  |
-| colourpicker  | Plot Colour Helper               | plotHelperAddin     | true        | colourpicker::plotHelperAddin   |                  |
-| colourpicker  | Colour Picker                    | colourPickerAddin   | true        | colourpicker::colourPickerAddin |                  |
-| covr          | Calculate package test coverage  | addin\_report       | false       | covr::addin\_report             |                  |
-| cronR         | Schedule R scripts on Linux/Unix | cron\_rstudioaddin  | true        | cronR::cron\_rstudioaddin       |                  |
-| ggedit        | ggedit                           | ggeditAddin         | true        | ggedit::ggeditAddin             |                  |
-| remedy        | Backtick                         | backtickr           | false       | remedy::backtickr               | Ctrl+Cmd+\`      |
-| remedy        | Bold                             | boldr               | false       | remedy::boldr                   | Ctrl+Cmd+B       |
-| remedy        | Chunk                            | chunkr              | false       | remedy::chunkr                  | Ctrl+Alt+Cmd+C   |
-| remedy        | Chunksplit                       | chunksplitr         | false       | remedy::chunksplitr             | Ctrl+Shift+Alt+C |
-| remedy        | H1                               | h1r                 | false       | remedy::h1r                     | Ctrl+Cmd+1       |
-| remedy        | H2                               | h2r                 | false       | remedy::h2r                     | Ctrl+Cmd+2       |
-| remedy        | H3                               | h3r                 | false       | remedy::h3r                     | Ctrl+Cmd+3       |
-| remedy        | H4                               | h4r                 | false       | remedy::h4r                     | Ctrl+Cmd+4       |
-| remedy        | H5                               | h5r                 | false       | remedy::h5r                     | Ctrl+Cmd+5       |
-| remedy        | H6                               | h6r                 | false       | remedy::h6r                     | Ctrl+Cmd+6       |
-| remedy        | Htmlcomment                      | htmlcommentr        | false       | remedy::htmlcommentr            | Ctrl+Alt+C       |
-| remedy        | Image                            | imager              | false       | remedy::imager                  | Ctrl+Cmd+P       |
-| remedy        | Italics                          | italicsr            | false       | remedy::italicsr                | Ctrl+Cmd+I       |
-| remedy        | LaTeX                            | latexr              | false       | remedy::latexr                  | Ctrl+Cmd+L       |
-| remedy        | List                             | listr               | false       | remedy::listr                   | Ctrl+Shift+Cmd+= |
-| remedy        | Right                            | rightr              | false       | remedy::rightr                  | Alt+Cmd+Right    |
-| remedy        | Strike                           | striker             | false       | remedy::striker                 | Ctrl+Cmd+S       |
-| remedy        | Table                            | tabler              | false       | remedy::tabler                  | Ctrl+Cmd+T       |
-| remedy        | Url                              | urlr                | false       | remedy::urlr                    | Ctrl+Cmd+U       |
-| remedy        | Xaringan                         | xaringanr           | false       | remedy::xaringanr               | Ctrl+Cmd+X       |
-| remedy        | Youtube                          | youtuber            | false       | remedy::youtuber                | Ctrl+Cmd+Y       |
-| reprex        | Render reprex                    | reprex\_addin       | true        | reprex::reprex\_addin           |                  |
-| rhandsontable | Edit a Data Frame                | editAddin           | true        | rhandsontable::editAddin        |                  |
-| rsam          | lla1                             | lla1                | true        | rsam::lla1                      |                  |
-| rsam          | lla2                             | lla2                | true        | rsam::lla2                      |                  |
-| rsam          | lla3                             | lla3                | true        | rsam::lla3                      |                  |
-| shinyjs       | Colour Picker                    | colourPickerAddin   | true        | shinyjs::colourPickerAddin      |                  |
-| sinew         | createOxygen                     | oxygenAddin         | false       | sinew::oxygenAddin              |                  |
-| sinew         | interactiveOxygen                | interOxyAddIn       | true        | sinew::interOxyAddIn            |                  |
-| styler        | Style package                    | style\_pkg          | true        | styler::style\_pkg              |                  |
-| styler        | Style active file                | style\_active\_file | true        | styler::style\_active\_file     |                  |
-| styler        | Style selection                  | style\_selection    | true        | styler::style\_selection        |                  |
-| texPreview    | texPreview                       | texAddin            | false       | texPreview::texAddin            |                  |
-| vcs           | alexa                            | alexa               | true        | vcs::alexa                      |                  |
+| Package       | Name                             | Binding             | Interactive | Key                             | Shortcut |
+|:--------------|:---------------------------------|:--------------------|:------------|:--------------------------------|:---------|
+| blogdown      | Serve Site                       | serve\_site         | true        | blogdown::serve\_site           |          |
+| blogdown      | New Post                         | new\_post\_addin    | true        | blogdown::new\_post\_addin      |          |
+| blogdown      | Update Metadata                  | update\_meta\_addin | true        | blogdown::update\_meta\_addin   |          |
+| bookdown      | Preview Book                     | serve\_book         | true        | bookdown::serve\_book           |          |
+| bookdown      | Input LaTeX Math                 | mathquill           | true        | bookdown::mathquill             |          |
+| chunky        | chunky                           | chunkify            | false       | chunky::chunkify                |          |
+| clipr         | Value to clipboard               | clipr\_result       | false       | clipr::clipr\_result            |          |
+| clipr         | Output to clipboard              | clipr\_output       | false       | clipr::clipr\_output            |          |
+| colourpicker  | Plot Colour Helper               | plotHelperAddin     | true        | colourpicker::plotHelperAddin   |          |
+| colourpicker  | Colour Picker                    | colourPickerAddin   | true        | colourpicker::colourPickerAddin |          |
+| covr          | Calculate package test coverage  | addin\_report       | false       | covr::addin\_report             |          |
+| cronR         | Schedule R scripts on Linux/Unix | cron\_rstudioaddin  | true        | cronR::cron\_rstudioaddin       |          |
+| ggedit        | ggedit                           | ggeditAddin         | true        | ggedit::ggeditAddin             |          |
+| remedy        | Backtick                         | backtickr           | false       | remedy::backtickr               |          |
+| remedy        | Bold                             | boldr               | false       | remedy::boldr                   |          |
+| remedy        | Chunk                            | chunkr              | false       | remedy::chunkr                  |          |
+| remedy        | Chunksplit                       | chunksplitr         | false       | remedy::chunksplitr             |          |
+| remedy        | H1                               | h1r                 | false       | remedy::h1r                     |          |
+| remedy        | H2                               | h2r                 | false       | remedy::h2r                     |          |
+| remedy        | H3                               | h3r                 | false       | remedy::h3r                     |          |
+| remedy        | H4                               | h4r                 | false       | remedy::h4r                     |          |
+| remedy        | H5                               | h5r                 | false       | remedy::h5r                     |          |
+| remedy        | H6                               | h6r                 | false       | remedy::h6r                     |          |
+| remedy        | Htmlcomment                      | htmlcommentr        | false       | remedy::htmlcommentr            |          |
+| remedy        | Image                            | imager              | false       | remedy::imager                  |          |
+| remedy        | Italics                          | italicsr            | false       | remedy::italicsr                |          |
+| remedy        | LaTeX                            | latexr              | false       | remedy::latexr                  |          |
+| remedy        | List                             | listr               | false       | remedy::listr                   |          |
+| remedy        | Right                            | rightr              | false       | remedy::rightr                  |          |
+| remedy        | Strike                           | striker             | false       | remedy::striker                 |          |
+| remedy        | Table                            | tabler              | false       | remedy::tabler                  |          |
+| remedy        | Url                              | urlr                | false       | remedy::urlr                    |          |
+| remedy        | Xaringan                         | xaringanr           | false       | remedy::xaringanr               |          |
+| remedy        | Youtube                          | youtuber            | false       | remedy::youtuber                |          |
+| reprex        | Render reprex                    | reprex\_addin       | true        | reprex::reprex\_addin           |          |
+| rhandsontable | Edit a Data Frame                | editAddin           | true        | rhandsontable::editAddin        |          |
+| rsam          | lla1                             | lla1                | true        | rsam::lla1                      |          |
+| rsam          | lla2                             | lla2                | true        | rsam::lla2                      |          |
+| rsam          | lla3                             | lla3                | true        | rsam::lla3                      |          |
+| shinyjs       | Colour Picker                    | colourPickerAddin   | true        | shinyjs::colourPickerAddin      |          |
+| sinew         | createOxygen                     | oxygenAddin         | false       | sinew::oxygenAddin              |          |
+| sinew         | interactiveOxygen                | interOxyAddIn       | true        | sinew::interOxyAddIn            |          |
+| styler        | Style package                    | style\_pkg          | true        | styler::style\_pkg              |          |
+| styler        | Style active file                | style\_active\_file | true        | styler::style\_active\_file     |          |
+| styler        | Style selection                  | style\_selection    | true        | styler::style\_selection        |          |
+| texPreview    | texPreview                       | texAddin            | false       | texPreview::texAddin            |          |
+| vcs           | alexa                            | alexa               | true        | vcs::alexa                      |          |
 
 ### Building Keyboard Shortcuts
 

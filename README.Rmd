@@ -3,9 +3,7 @@ output:
   md_document:
     variant: markdown_github
 ---
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/rsam)](https://cran.r-project.org/package=rsam)
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/rsam)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Travis-CI Build Status](https://travis-ci.org/yonicd/rsam.svg?branch=master)](https://travis-ci.org/yonicd/rsam)[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/yonicd/rsam?branch=master&svg=true)](https://ci.appveyor.com/project/yonicd/rsam)
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -30,6 +28,8 @@ x[is.na(x)] <- ''
 `{rsam}` provides a command line and user interface to manage RStudio addins.
 
 ## Installation
+
+Since `{rsam}` manages the rstudio addins it must write to disk. For this reason the package was removed from [CRAN](https://cran.r-project.org/web/packages/rsam/index.html).
 
 ```{r, eval=FALSE}
 remotes::install_github('yonicd/rsam')
