@@ -1,8 +1,8 @@
 Package: rsam
 Type: Package
-Date: 2018-01-09
+Date: 2018-01-22
 Title: 'RStudio' Addin Manager
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Jonathan", "Sidi", email = "yonicd@gmail.com", role = c("aut", "cre"),comment = c(ORCID = "0000-0002-4222-1819"))
 Maintainer: Jonathan Sidi <yonicd@gmail.com>
 Description: Toggle 'RStudio' addins on and off to hide in the IDE dropdown list and
