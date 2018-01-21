@@ -44,8 +44,11 @@ rsam <- function(warn=TRUE) {
 
     output$hot <- rhandsontable::renderRHandsontable({
       tbl <- this[,c('Package','Name','Description','Show','Shortcut')]
-      rhandsontable(tbl, readOnly = TRUE, height = 500) %>%
-             hot_col(c('Show'), readOnly = FALSE)%>%
+
+      tbl$Shortcut[is.na(tbl$Shortcut)] <- ''
+
+      rhandsontable::rhandsontable(tbl, readOnly = TRUE, height = 500) %>%
+        hot_col(c('Show'), readOnly = FALSE)%>%
         hot_col(c('Shortcut'), readOnly = FALSE)%>%
         hot_cols(columnSorting = TRUE)
     })
@@ -83,9 +86,9 @@ rsam <- function(warn=TRUE) {
 
       this_toggle <- this_update()
 
-      if(sum(!grepl('NA',this_toggle$Shortcut))>0){
+      if(sum(!grepl('NA|^$',this_toggle$Shortcut))>0){
 
-        this_shortcut <- this_toggle[!grepl('NA',this_toggle$Shortcut),c('Key','Shortcut')]
+        this_shortcut <- this_toggle[!grepl('NA|^$',this_toggle$Shortcut),c('Key','Shortcut')]
 
         set_shortcut(fn = this_shortcut$Key,
                      shortcut = this_shortcut$Shortcut,

@@ -9,6 +9,11 @@
 #' @export
 toggle_addin <- function(key){
 
+      if(.rsamEnv$dcf_no){
+        message('rsam does not have rights to write to dcf on disk')
+        invisible(return(NULL))
+      }
+
       default_addins <- fetch_addins()
 
       current_toggle <- as.data.frame(do.call('rbind',sapply(unique(gsub('_addins.dcf','_toggle',default_addins$libpath)),read.dcf)),stringsAsFactors = FALSE)

@@ -1,4 +1,17 @@
+#' @title Create duplicate of addins.dcf file in installed packages.
+#' @description Create duplicates of installed addins.dcf of packages with addins
+#'  found in libpath that rsam will manipulate
+#' @return nothing
+#' @rdname anti_addin
+#' @export
+#' @importFrom utils installed.packages
 anti_addin <- function(){
+
+  if(.rsamEnv$dcf_no){
+    message('rsam does not have rights to write to dcf on disk')
+    invisible(return(NULL))
+  }
+
   inst_pkgs <- utils::installed.packages()[,c(1,2)]
   inst_pkgs1 <- file.path(inst_pkgs[,2],inst_pkgs[,1],'rstudio','addins.dcf')
 
@@ -34,28 +47,28 @@ anti_addin <- function(){
 
   current_keys <- fetch_addin_keys()
 
-  for(this_pkg in pkgs){
-    this_dcf <- read.dcf(anti_addins[grep(this_pkg,pkgs)])
+    for(this_pkg in pkgs){
+      this_dcf <- read.dcf(anti_addins[grep(this_pkg,pkgs)])
 
-    this_key <- paste(this_pkg,this_dcf[,'Binding'],sep='::')
+      this_key <- paste(this_pkg,this_dcf[,'Binding'],sep='::')
 
-    if(!'Key'%in%colnames(this_dcf))
-      this_dcf <- cbind(this_dcf,Key=this_key)
+      if(!'Key'%in%colnames(this_dcf))
+        this_dcf <- cbind(this_dcf,Key=this_key)
 
-    if(!is.null(current_keys)){
-      this_dcf <- cbind(this_dcf,Shortcut=NA)
+      if(!is.null(current_keys)){
+        this_dcf <- cbind(this_dcf,Shortcut=NA)
 
-      for(idx in 1:nrow(this_dcf)){
-        this_dcf[idx,'Shortcut'] <- current_keys$Shortcut[match(this_dcf[idx,'Key'],current_keys$Key)]
+        for(idx in 1:nrow(this_dcf)){
+          this_dcf[idx,'Shortcut'] <- current_keys$Shortcut[match(this_dcf[idx,'Key'],current_keys$Key)]
+        }
+      }
+
+      write.dcf(this_dcf,file = anti_addins[grep(this_pkg,pkgs)])
+
+      if(!file.exists(toggle_addins[grep(this_pkg,pkgs)])){
+        write.dcf(cbind(Key=this_key,Hide='false'),file=toggle_addins[grep(this_pkg,pkgs)])
       }
     }
-
-    write.dcf(this_dcf,file = anti_addins[grep(this_pkg,pkgs)])
-
-    if(!file.exists(toggle_addins[grep(this_pkg,pkgs)])){
-      write.dcf(cbind(Key=this_key,Hide='false'),file=toggle_addins[grep(this_pkg,pkgs)])
-    }
-  }
 
   return(invisible(anti_addins))
 }

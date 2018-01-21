@@ -9,6 +9,11 @@
 #' @importFrom jsonlite write_json
 rm_shortcut <- function(fn, verbose = TRUE){
 
+  if(.rsamEnv$json_no){
+    message('rsam does not have rights to write to jsons on disk')
+    invisible(return(NULL))
+  }
+
   current_keys <- fetch_addin_keys()
 
   rm_idx <- current_keys$Key%in%fn
@@ -17,11 +22,11 @@ rm_shortcut <- function(fn, verbose = TRUE){
   rm_keys <- current_keys[rm_idx,]
   new_keys <- current_keys[!rm_idx,]
 
-
   jsonlite::write_json(split(new_keys[,3],new_keys[,4]),
                        path="~/.R/rstudio/keybindings/addins.json",
                        auto_unbox = TRUE,
                        pretty = TRUE)
+
 
 
   if(verbose){

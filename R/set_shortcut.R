@@ -9,6 +9,11 @@
 #' @importFrom jsonlite write_json
 set_shortcut <- function(fn, shortcut, overide = FALSE, verbose = TRUE) {
 
+  if(.rsamEnv$json_no){
+    message('rsam does not have rights to write to jsons on disk')
+    invisible(return(NULL))
+  }
+
   if(length(fn)!=length(unique(fn)))
     stop('fn values must be unique')
 

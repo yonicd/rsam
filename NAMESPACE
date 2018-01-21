@@ -2,6 +2,7 @@
 
 S3method("+",key)
 export("%>%")
+export(anti_addin)
 export(fetch_addin_keys)
 export(fetch_addins)
 export(restore_addins)
