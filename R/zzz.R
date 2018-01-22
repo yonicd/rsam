@@ -1,5 +1,15 @@
 #' @importFrom jsonlite write_json
+#' @importFrom yaml read_yaml
 .onLoad <- function(libname, pkgname) {
+
+  if(file.exists('~/_rsam.yml')){
+    this_yml <- yaml::read_yaml('~/_rsam.yml')
+
+    assign("set", envir = .rsamEnv, FALSE)
+    assign("json_no", envir = .rsamEnv, this_yml$json_no)
+    assign("dcf_no", envir = .rsamEnv, this_yml$dcf_no)
+
+  }
 
   if(interactive()&.rsamEnv$set){
 
@@ -22,7 +32,22 @@
 
 
 #' @importFrom jsonlite write_json
+#' @importFrom yaml read_yaml
 .onAttach <- function(libname, pkgname) {
+
+  if(file.exists('~/_rsam.yml')){
+    this_yml <- yaml::read_yaml('~/_rsam.yml')
+
+    assign("set", envir = .rsamEnv, FALSE)
+    assign("json_no", envir = .rsamEnv, this_yml$json_no)
+    assign("dcf_no", envir = .rsamEnv, this_yml$dcf_no)
+
+    if(!this_yml$silent){
+      packageStartupMessage('rsam persmissions set by _rsam.yml')
+    }
+
+
+  }
 
   if(interactive()&.rsamEnv$set){
 
