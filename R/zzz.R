@@ -6,8 +6,8 @@
     this_yml <- yaml::read_yaml('~/_rsam.yml')
 
     assign("set", envir = .rsamEnv, FALSE)
-    assign("json_no", envir = .rsamEnv, this_yml$json_no)
-    assign("dcf_no", envir = .rsamEnv, this_yml$dcf_no)
+    assign("write_json", envir = .rsamEnv, this_yml$write_json)
+    assign("write_dcf", envir = .rsamEnv, this_yml$write_dcf)
 
   }
 
@@ -15,13 +15,13 @@
 
     assign("set", envir = .rsamEnv, FALSE)
 
-    .rsamEnv$json_no <- yesno('Do you agree to let {rsam} manipulate the addins\njsons used to manage RStudio addin keyboard shortcuts?')
-    .rsamEnv$dcf_no <- yesno('Do you agree to let {rsam} duplicate the dcf files of the installed addins in your .libPaths\nand manipulate them to manage RStudio Addins dropdown list?')
+    .rsamEnv$write_json <- yesno('Do you agree to let {rsam} manipulate the addins\njsons used to manage RStudio addin keyboard shortcuts?')
+    .rsamEnv$write_dcf <- yesno('Do you agree to let {rsam} duplicate the dcf files of the installed addins in your .libPaths\nand manipulate them to manage RStudio Addins dropdown list?')
   }
 
   key_dir <- '~/.R/rstudio/keybindings'
 
-  if(!dir.exists(key_dir)&!.rsamEnv$json_no){
+  if(!dir.exists(key_dir)&.rsamEnv$write_json){
 
     dir.create('~/.R/rstudio/keybindings',showWarnings = FALSE,recursive = TRUE)
 
@@ -39,11 +39,11 @@
     this_yml <- yaml::read_yaml('~/_rsam.yml')
 
     assign("set", envir = .rsamEnv, FALSE)
-    assign("json_no", envir = .rsamEnv, this_yml$json_no)
-    assign("dcf_no", envir = .rsamEnv, this_yml$dcf_no)
+    assign("write_json", envir = .rsamEnv, this_yml$write_json)
+    assign("write_dcf", envir = .rsamEnv, this_yml$write_dcf)
 
-    if(!this_yml$silent){
-      packageStartupMessage('rsam persmissions set by _rsam.yml')
+    if(this_yml$verbose){
+      packageStartupMessage('rsam persmissions set by ~/_rsam.yml')
     }
 
 
@@ -53,14 +53,14 @@
 
     assign("set", envir = .rsamEnv, FALSE)
 
-    .rsamEnv$json_no <- yesno('Do you agree to let {rsam} manipulate the addins\njsons used to manage RStudio addin keyboard shortcuts?')
-    .rsamEnv$dcf_no <- yesno('Do you agree to let {rsam} duplicate the dcf files of the installed addins in your .libPaths\nand manipulate them to manage RStudio Addins dropdown list?')
+    .rsamEnv$write_json <- yesno('Do you agree to let {rsam} manipulate the addins\njsons used to manage RStudio addin keyboard shortcuts?')
+    .rsamEnv$write_dcf <- yesno('Do you agree to let {rsam} duplicate the dcf files of the installed addins in your .libPaths\nand manipulate them to manage RStudio Addins dropdown list?')
 
   }
 
   key_dir <- '~/.R/rstudio/keybindings'
 
-  if(!dir.exists(key_dir)&!.rsamEnv$json_no){
+  if(!dir.exists(key_dir)&.rsamEnv$write_json){
 
     dir.create('~/.R/rstudio/keybindings',showWarnings = FALSE,recursive = TRUE)
 

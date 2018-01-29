@@ -11,6 +11,8 @@ fetch_addins <- function(fields=NULL){
 
   addin_pkgs <- anti_addin()
 
+  if(is.null(addin_pkgs)) invisible(return(NULL))
+
   addins <- lapply(addin_pkgs,function(x){
     ret <- read.dcf(x)
     s <- strsplit(x,'/')[[1]]

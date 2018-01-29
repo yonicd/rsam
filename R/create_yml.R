@@ -6,9 +6,9 @@
 #'
 #' \tabular{lll}{
 #' \strong{field} \tab \strong{description} \tab \strong{setting}\cr
-#' json_no \tab Permission to write ~/.R/rstudio/keybindings/addins.json                     \tab FALSE\cr
-#' dcf_no  \tab Permission to duplicate rstudio/addins.dcf of installed packages with addins \tab FALSE\cr
-#' silent  \tab Permission to run onload/onattach script run with messages to console        \tab  TRUE
+#' write_json \tab Permission to write ~/.R/rstudio/keybindings/addins.json                     \tab TRUE\cr
+#' write_dcf  \tab Permission to duplicate rstudio/addins.dcf of installed packages with addins \tab TRUE\cr
+#' verbose  \tab Permission to run onLoad/onAttach script run with messages to console        \tab  TRUE
 #'}
 #'
 #' @return NOTHING
@@ -19,9 +19,9 @@ create_yml <- function(overwrite=FALSE){
 
   this_file <- '~/_rsam.yml'
 
-  x <- data.frame(json_no=FALSE,
-                  dcf_no=FALSE,
-                  silent=TRUE,
+  x <- data.frame(write_json=TRUE,
+                  write_dcf=TRUE,
+                  verbose=TRUE,
                   stringsAsFactors = FALSE)
 
   if(interactive()){

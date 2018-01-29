@@ -29,11 +29,33 @@ x[is.na(x)] <- ''
 
 ## Installation
 
-Since `{rsam}` manages the rstudio addins it must write to disk. For this reason the package was removed from [CRAN](https://cran.r-project.org/web/packages/rsam/index.html).
+Since `{rsam}` manages the rstudio addins it must write to disk.
 
 ```{r, eval=FALSE}
 remotes::install_github('yonicd/rsam')
 ```
+
+## Permissions
+
+{rsam} needs explicit user permissions to write to disk. There are two questions that need to be answered for the package to run as intended. 
+
+   - Do you agree to let {rsam} manipulate the addins jsons used to manage RStudio addin keyboard shortcuts?
+   
+   - Do you agree to let {rsam} duplicate the dcf files of the installed addins in your `.libPaths()` and manipulate them to manage RStudio Addins dropdown list?
+   
+Answering the affirmative to both will allow {rsam} to manipulate non R related files. Answering only one will allow for a narrow application of {rsam}.
+
+There are two ways to set answers to the questions:
+
+  1. On load or attach of the library a prompt is invoked asking the two questions. This is done to set the permissions once a session. 
+  
+  2. Use `rsam::create_yml()` to write _rsam.yml to the home directory `(~)`. In this file there are three fields. When loading {rsam} looks for this file and if it exists then uses the field settings instead of asking questions via prompts.
+ 
+|  Field|  Description|  Setting|
+|--:|--:|--:|
+|  write_json|  Permission to write ~/.R/rstudio/keybindings/addins.json|  yes|
+|  write_dcf |  Permission to duplicate and edit rstudio/addins.dcf of installed packages with addins|  yes|
+|  verbose   |  Permission to run onload/onattach script run with messages to console|  yes| 
 
 ## UI
 

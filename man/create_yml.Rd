@@ -20,8 +20,8 @@ Default Settings:
 
 \tabular{lll}{
 \strong{field} \tab \strong{description} \tab \strong{setting}\cr
-json_no \tab Permission to write ~/.R/rstudio/keybindings/addins.json                     \tab FALSE\cr
-dcf_no  \tab Permission to duplicate rstudio/addins.dcf of installed packages with addins \tab FALSE\cr
-silent  \tab Permission to run onload/onattach script run with messages to console        \tab  TRUE
+write_json \tab Permission to write ~/.R/rstudio/keybindings/addins.json                     \tab TRUE\cr
+write_dcf  \tab Permission to duplicate rstudio/addins.dcf of installed packages with addins \tab TRUE\cr
+verbose  \tab Permission to run onLoad/onAttach script run with messages to console        \tab  TRUE
 }
 }

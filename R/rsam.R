@@ -18,6 +18,14 @@ rsam <- function(warn=TRUE) {
 
   this <- merge(current_toggle,default_addins,by = 'Key')
 
+  this_warn <- NULL
+
+  if(!.rsamEnv$write_dcf) this_warn <- 'rsam does not have rights to write to jsons on disk'
+  if(!.rsamEnv$write_json) this_warn <- paste(this_warn,'rsam does not have rights to write to dcf on disk',sep='\n')
+
+
+
+
   # gadget UI ----
   ui <- miniUI::miniPage(
 
@@ -61,6 +69,11 @@ rsam <- function(warn=TRUE) {
 
       this_new
     })
+
+    if(!is.null(this_warn)){
+      showModal(modalDialog(title = HTML(this_warn),easyClose = TRUE))
+    }
+
 
     shiny::observeEvent(input$update, {
 

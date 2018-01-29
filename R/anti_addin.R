@@ -7,7 +7,7 @@
 #' @importFrom utils installed.packages
 anti_addin <- function(){
 
-  if(.rsamEnv$dcf_no){
+  if(!.rsamEnv$write_dcf){
     message('rsam does not have rights to write to dcf on disk')
     invisible(return(NULL))
   }
